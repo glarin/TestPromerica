@@ -11,19 +11,25 @@
     <h:body>
         <h:form id="frmOrden">
             <h5>Ordenes</h5>
-            <p:dataTable id="dtStory" value="#{ordenBean.listaOrdenes}" var="orden" emptyMessage="No posees ordenes en la lista"
-                         selectionMode="single" selection="#{ordenBean.orden}" rowKey="#{orden.id}" scrollable="true" scrollHeight="150">
-                <p:ajax event="rowSelect" listener="#{ordenBean.onSelectStory}"/>
-                <p:column headerText="ID" style="width: 20%;">
-                    <div align="center"><h:outputText value="#{orden.id}"/></div>
+            <p:dataTable var="orden" value="#{ordenBean.listaOrdenes}" sortBy="#{orden.clienteId.nombres}">
+                <p:column  headerText="CLIENTES" groupRow="true">
+                    <h:outputText style="vertical-align: middle; margin-left: .5rem"
+                                  value="#{orden.clienteId.nombres} #{orden.clienteId.apellidos}"/>
                 </p:column>
-                <p:column headerText="CLIENTE" style="width: 30%;">
-                    <h:outputText value="#{orden.clienteId.nombres}"/>
+
+                <p:column headerText="PRODUCTO">
+                    <h:outputText value="#{orden.productoId.nombre}" />
                 </p:column>
-                <p:column headerText="PRODUCTOS" style="width: 50%;">
-                    <h:outputText value="#{orden.productoId.nombre}"/>
+
+                <p:column headerText="CANTIDAD">
+                    <h:outputText style="vertical-align: middle; margin-left: .5rem" value="#{orden.cantidad}"/>
+                </p:column>
+
+                <p:column headerText="ESTADO">
+                    <span class="customer-badge status-#{customer.status.name().toLowerCase()}">#{orden.status ? 'entregada' : 'pendiente'}</span>
                 </p:column>
             </p:dataTable>
+            
         </h:form>
     </h:body>
 </html>

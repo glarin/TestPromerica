@@ -1,7 +1,7 @@
 package com.promerica.ui.tienda.bean;
 
-import clientews.servicio.Orden;
 import com.promerica.ui.tienda.client.OrdenClient;
+import com.promerica.ui.tienda.ws.Orden;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -19,15 +19,15 @@ import org.primefaces.event.SelectEvent;
 @Named(value = "ordenBean")
 @ViewScoped
 public class OrdenBean implements Serializable {
-    @Inject
-    private OrdenClient service;
+    transient private OrdenClient service;
     
     @Inject
-    private Orden orden;
+    transient private Orden orden;
     private List<Orden> listaOrdenes;
     
     @PostConstruct
     public void init() {
+        this.service = new OrdenClient();
         this.listaOrdenes = service.getOrdenService().listarOrdenes();
         System.out.println("Lista: " + this.listaOrdenes);
     }

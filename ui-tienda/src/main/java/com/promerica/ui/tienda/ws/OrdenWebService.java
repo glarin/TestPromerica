@@ -27,6 +27,18 @@ public interface OrdenWebService {
 
     /**
      * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "borrarOrden", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.BorrarOrden")
+    @ResponseWrapper(localName = "borrarOrdenResponse", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.BorrarOrdenResponse")
+    @Action(input = "http://service.tienda.ws.promerica.com/OrdenWebService/borrarOrdenRequest", output = "http://service.tienda.ws.promerica.com/OrdenWebService/borrarOrdenResponse")
+    public void borrarOrden(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Orden arg0);
+
+    /**
+     * 
      * @return
      *     returns java.util.List<com.promerica.ui.tienda.ws.Orden>
      */
@@ -36,18 +48,6 @@ public interface OrdenWebService {
     @ResponseWrapper(localName = "listarOrdenesResponse", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.ListarOrdenesResponse")
     @Action(input = "http://service.tienda.ws.promerica.com/OrdenWebService/listarOrdenesRequest", output = "http://service.tienda.ws.promerica.com/OrdenWebService/listarOrdenesResponse")
     public List<Orden> listarOrdenes();
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "editarOrden", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.EditarOrden")
-    @ResponseWrapper(localName = "editarOrdenResponse", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.EditarOrdenResponse")
-    @Action(input = "http://service.tienda.ws.promerica.com/OrdenWebService/editarOrdenRequest", output = "http://service.tienda.ws.promerica.com/OrdenWebService/editarOrdenResponse")
-    public void editarOrden(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Orden arg0);
 
     /**
      * 
@@ -64,6 +64,18 @@ public interface OrdenWebService {
     /**
      * 
      * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "editarOrden", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.EditarOrden")
+    @ResponseWrapper(localName = "editarOrdenResponse", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.EditarOrdenResponse")
+    @Action(input = "http://service.tienda.ws.promerica.com/OrdenWebService/editarOrdenRequest", output = "http://service.tienda.ws.promerica.com/OrdenWebService/editarOrdenResponse")
+    public void editarOrden(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Orden arg0);
+
+    /**
+     * 
+     * @param arg0
      * @return
      *     returns com.promerica.ui.tienda.ws.Orden
      */
@@ -73,18 +85,6 @@ public interface OrdenWebService {
     @ResponseWrapper(localName = "buscarOrdenPorIdResponse", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.BuscarOrdenPorIdResponse")
     @Action(input = "http://service.tienda.ws.promerica.com/OrdenWebService/buscarOrdenPorIdRequest", output = "http://service.tienda.ws.promerica.com/OrdenWebService/buscarOrdenPorIdResponse")
     public Orden buscarOrdenPorId(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Orden arg0);
-
-    /**
-     * 
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "borrarOrden", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.BorrarOrden")
-    @ResponseWrapper(localName = "borrarOrdenResponse", targetNamespace = "http://service.tienda.ws.promerica.com/", className = "com.promerica.ui.tienda.ws.BorrarOrdenResponse")
-    @Action(input = "http://service.tienda.ws.promerica.com/OrdenWebService/borrarOrdenRequest", output = "http://service.tienda.ws.promerica.com/OrdenWebService/borrarOrdenResponse")
-    public void borrarOrden(
         @WebParam(name = "arg0", targetNamespace = "")
         Orden arg0);
 
